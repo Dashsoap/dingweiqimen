@@ -1,0 +1,35 @@
+# qmdj-next
+
+node_modules
+.next
+.turbo
+out
+dist
+build
+
+# env
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ide
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
