@@ -411,15 +411,55 @@ body {
     background-color: #777;
 }
 
+/* 九宫详解网格 - 响应式布局 */
+.gong-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gong-detail-item {
+    min-width: 0;
+}
+
+/* 面板颜色类型 */
+.panel-success .panel-heading {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+
+.panel-danger .panel-heading {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+.panel-info .panel-heading {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f;
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
     .info-item {
         width: 100%;
     }
+    
+    /* 九宫详解在移动端单列显示 */
+    .gong-details-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 769px) {
     .info-item {
         width: 49%;
+    }
+    
+    /* 九宫详解在平板端两列显示 */
+    .gong-details-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

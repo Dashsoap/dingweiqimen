@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/mac/.ssh/**)",
+      "Bash(cat:*)",
+      "Bash(ssh:*)",
+      "Bash(nc:*)",
+      "Bash(git remote set-url:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
