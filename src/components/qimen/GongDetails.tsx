@@ -7,7 +7,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { QimenResult } from '@/lib/types';
+import type { QimenResult, GongNumber } from '@/lib/types';
 import { palaceMeanings } from '@/lib/meanings';
 
 interface GongDetailsProps {
@@ -15,7 +15,7 @@ interface GongDetailsProps {
 }
 
 // 宫位名称与宫位数字对应
-const gongNameMap: Record<string, string> = {
+const gongNameMap: Record<GongNumber, string> = {
   '1': '坎',
   '2': '坤',
   '3': '震',
@@ -28,7 +28,7 @@ const gongNameMap: Record<string, string> = {
 };
 
 export default function GongDetails({ result }: GongDetailsProps) {
-  const [expandedGong, setExpandedGong] = useState<string | null>(null);
+  const [expandedGong, setExpandedGong] = useState<GongNumber | null>(null);
 
   // 吉凶文本映射
   const jiXiongTextMap: Record<string, string> = {
@@ -40,10 +40,10 @@ export default function GongDetails({ result }: GongDetailsProps) {
   };
 
   // 宫位顺序 1-9
-  const gongOrder = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  const gongOrder: GongNumber[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
   // 切换展开/折叠
-  const toggleExpand = (gongNum: string) => {
+  const toggleExpand = (gongNum: GongNumber) => {
     setExpandedGong(expandedGong === gongNum ? null : gongNum);
   };
 

@@ -29,7 +29,7 @@ export type BaMen = '休门' | '生门' | '伤门' | '杜门' | '景门' | '死�
 export type BaShen = '值符' | '腾蛇' | '太阴' | '六合' | '白虎' | '玄武' | '九地' | '九天';
 
 /** 吉凶类型 */
-export type JiXiong = 'ji' | 'xiong' | 'ping';
+export type JiXiong = 'da_ji' | 'xiao_ji' | 'ping' | 'xiao_xiong' | 'da_xiong';
 
 /** 排盘类型 */
 export type PanType = '四柱' | '日家' | '月家' | '年家';
@@ -107,6 +107,8 @@ export interface GongAnalysis {
   direction: string;
   jiXiong: JiXiong;
   description?: string;
+  xingAlias?: string;
+  explain?: string;
 }
 
 /** 地盘干分布 */
