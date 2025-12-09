@@ -311,6 +311,33 @@ body {
     color: white;
 }
 
+/* 相刑和入墓标记 */
+.xing-mark,
+.mu-mark {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    font-size: 10px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.xing-mark {
+    background-color: #ff4757; /* 红色 - 相刑 */
+    color: white;
+}
+
+.mu-mark {
+    background-color: #888; /* 灰色 - 入墓 */
+    color: white;
+}
+
 /* 天盘干方框标记 - 日柱旬首六仪 */
 .gong-tiangan.tianpan-boxed {
     border: 2px solid;
@@ -514,6 +541,17 @@ body {
     .qimen-pan {
         padding: 8px;
     }
+    
+    /* 相刑入墓标记优化 */
+    .xing-mark,
+    .mu-mark {
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+        font-size: 9px;
+        top: -6px;
+        right: -6px;
+    }
 }
 
 /* 小屏幕手机优化 (iPhone SE 等) */
@@ -543,6 +581,17 @@ body {
         height: 14px;
         line-height: 14px;
         font-size: 9px;
+    }
+    
+    /* 相刑入墓标记进一步缩小 */
+    .xing-mark,
+    .mu-mark {
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        font-size: 8px;
+        top: -5px;
+        right: -5px;
     }
 }
 

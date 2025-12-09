@@ -102,6 +102,36 @@ const getWuXingBorderColor = (element?: string): string => {
   return borderMap[element] || '';
 };
 
+// 判断天盘干是否相刑
+const checkXiangXing = (tianPanGan?: string, gongNumber?: string): boolean => {
+  if (!tianPanGan || !gongNumber) return false;
+  
+  const xiangXingMap: Record<string, string> = {
+    '戊': '3', // 震宫
+    '癸': '4', // 巽宫
+    '壬': '4', // 巽宫
+    '辛': '9', // 离宫
+    '庚': '8', // 艮宫
+    '己': '2'  // 坤宫
+  };
+  
+  return xiangXingMap[tianPanGan] === gongNumber;
+};
+
+// 判断天盘干是否入墓
+const checkRuMu = (tianPanGan?: string, gongNumber?: string): boolean => {
+  if (!tianPanGan || !gongNumber) return false;
+  
+  const ruMuMap: Record<string, string[]> = {
+    '4': ['辛', '壬'], // 巽宫
+    '2': ['癸'],       // 坤宫
+    '8': ['庚', '丁', '己'], // 艮宫
+    '6': ['乙', '戊', '丙']  // 乾宫
+  };
+  
+  return ruMuMap[gongNumber]?.includes(tianPanGan) || false;
+};
+
 export default function GongCell({
   gongNumber,
   tianPanGan,
@@ -155,6 +185,10 @@ export default function GongCell({
   const isTianPanEmpty = !tianPanGan || tianPanGan === '';
   // 地盘干是否为空
   const isDiPanEmpty = !diPanGan || diPanGan === '';
+  
+  // 判断相刑和入墓
+  const isXiangXing = checkXiangXing(tianPanGan, gongNumber);
+  const isRuMu = checkRuMu(tianPanGan, gongNumber);
 
   return (
     <div className={gongClasses}>
@@ -197,8 +231,16 @@ export default function GongCell({
         </div>
 
         {/* Row 3 - Column 3: 天盘干 */}
-        <div className={tianpanClasses}>
+        <div className={tianpanClasses} style={{ position: 'relative' }}>
           {!isTianPanEmpty ? tianPanGan : ''}
+          {/* 相刑标记 */}
+          {isXiangXing && (
+            <span className="xing-mark">刑</span>
+          )}
+          {/* 入墓标记 */}
+          {isRuMu && (
+            <span className="mu-mark">墓</span>
+          )}
         </div>
 
         {/* Row 4 - Column 1: 宫位名称 */}
