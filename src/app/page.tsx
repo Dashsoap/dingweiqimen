@@ -28,7 +28,11 @@ export default function HomePage() {
     setError(null);
 
     try {
-      const response = await fetch('/api/qimen');
+      // 添加时间戳避免缓存
+      const timestamp = new Date().getTime();
+      const response = await fetch(`/api/qimen?t=${timestamp}`, {
+        cache: 'no-store'
+      });
       if (!response.ok) {
         throw new Error('获取排盘数据失败');
       }

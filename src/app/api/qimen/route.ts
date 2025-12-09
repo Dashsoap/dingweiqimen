@@ -61,9 +61,14 @@ export async function GET(request: NextRequest) {
     }
 
     // 返回成功结果
+    // 实时排盘不缓存，自定义排盘可以缓存
+    const cacheControl = (!dateParam && !timeParam) 
+      ? 'no-store, no-cache, must-revalidate' 
+      : 'public, s-maxage=300, stale-while-revalidate=600';
+    
     return NextResponse.json(result, {
       headers: {
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=300'
+        'Cache-Control': cacheControl
       }
     });
   } catch (error: any) {
