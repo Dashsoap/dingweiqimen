@@ -451,6 +451,99 @@ body {
     .gong-details-grid {
         grid-template-columns: 1fr;
     }
+    
+    /* 移动端九宫格优化 */
+    .pan-grid {
+        max-width: 100%;
+        gap: 0;
+    }
+    
+    .gong-content {
+        padding: 2px;
+        gap: 0;
+    }
+    
+    /* 减小所有文字大小 */
+    .gong-dizhi {
+        font-size: 11px;
+    }
+    
+    .gong-bashen {
+        font-size: 13px;
+    }
+    
+    .gong-jiuxing {
+        font-size: 13px;
+    }
+    
+    .gong-bamen {
+        font-size: 13px;
+    }
+    
+    .gong-tiangan {
+        font-size: 13px;
+    }
+    
+    .gong-dipan {
+        font-size: 13px;
+    }
+    
+    .gong-gongname {
+        font-size: 13px;
+    }
+    
+    .gong-number {
+        font-size: 13px;
+    }
+    
+    /* 圆圈标记优化 */
+    .circle-mark {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        font-size: 10px;
+    }
+    
+    /* 天盘干方框优化 */
+    .gong-tiangan.tianpan-boxed {
+        border-width: 1.5px;
+        padding: 0px 2px;
+    }
+    
+    /* 奇门盘容器优化 */
+    .qimen-pan {
+        padding: 8px;
+    }
+}
+
+/* 小屏幕手机优化 (iPhone SE 等) */
+@media (max-width: 375px) {
+    .gong-content {
+        padding: 1px;
+    }
+    
+    /* 进一步减小文字 */
+    .gong-dizhi {
+        font-size: 10px;
+    }
+    
+    .gong-bashen,
+    .gong-jiuxing,
+    .gong-bamen,
+    .gong-tiangan,
+    .gong-dipan,
+    .gong-gongname,
+    .gong-number {
+        font-size: 11px;
+    }
+    
+    /* 圆圈标记进一步缩小 */
+    .circle-mark {
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+        font-size: 9px;
+    }
 }
 
 @media (max-width: 992px) and (min-width: 769px) {
@@ -461,5 +554,17 @@ body {
     /* 九宫详解在平板端两列显示 */
     .gong-details-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* 平板端九宫格字体微调 */
+    .gong-dizhi,
+    .gong-bashen,
+    .gong-jiuxing,
+    .gong-bamen,
+    .gong-tiangan,
+    .gong-dipan,
+    .gong-gongname,
+    .gong-number {
+        font-size: 16px;
     }
 }
