@@ -38,8 +38,8 @@ export default function QimenBoard({ result }: QimenBoardProps) {
             // 旬首是日柱天干对应的六仪之一
             const dayTianGan = result.siZhu?.day?.charAt(0); // 日柱天干
             const tianPanGan = result.tianPanGan[gongNumber];
-            const isDayXunShou = tianPanGan && dayTianGan &&
-              ['戊', '己', '庚', '辛', '壬', '癸'].includes(tianPanGan);
+            const isDayXunShou = !!(tianPanGan && dayTianGan &&
+              ['戊', '己', '庚', '辛', '壬', '癸'].includes(tianPanGan));
 
             // 获取暗干对应的地支
             const diZhi = result.anGan?.[gongNumber];
